@@ -1,1 +1,86 @@
-c:/Users/btanner/.vsvimrc
+source ~/.vimrc
+
+" previous config
+nmap <C-.> :vsc View.ShowSmartTag<CR>
+nmap en :vsc View.NextError<CR>
+nmap ep :vsc View.PreviousError<CR>
+nmap fn :vsc Edit.GoToFindResults1NextLocation<CR>
+nmap fp :vsc Edit.FindPrevious<CR>
+nmap <C-]> :vsc Edit.GoToDefinition<CR>
+" nmap sn :vsc Edit.GoToNextLocation<CR>
+" support :bd to close the file
+cmap bd :vsc File.Close<CR>
+
+" build the project of the ActiveDocument
+cmap Make :vsc Build.BuildSelection<CR>
+set vsvim_useeditordefaults "prefer VS Defaults for tabs
+
+" https://fuqua.io/blog/2017/08/level-up-your-vsvim/
+map gi :vsc Edit.GoToImplementation<CR>
+map gr :vsc Edit.FindAllReferences<CR>
+map gp :vsc Edit.PeekDefinition<CR>
+map gb :vsc View.NavigateBackward<CR>
+map gf :vsc View.NavigateForward<CR>
+
+" break out of the tyranny of text! Navigate by method
+nnoremap <leader>m :vsc Edit.NextMethod<CR>
+nnoremap <leader>M :vsc Edit.PreviousMethod<CR>
+nnoremap <leader>S :vsc SolutionExplorer.SyncWithActiveDocument<CR>
+nnoremap R :vsc Refactor.Rename<CR>
+
+" jump between compilation errors
+nnoremap <leader>e :vsc View.NextError<CR>
+nnoremap <leader>E :vsc View.PreviousError<CR>
+
+" testing and debugging
+nnoremap <leader>b :vsc Debug.ToggleBreakpoint<CR>
+nnoremap <leader>r :vsc TestExplorer.RunAllTestsInContext<CR>
+nnoremap <leader>R :vsc TestExplorer.DebugAllTestsInContext<CR>
+
+" open the change parameter window, a bit fake because it's not a text-object
+nnoremap cia :vsc Refactor.ReorderParameters<CR>
+
+" end https://fuqua.io/blog/2017/08/level-up-your-vsvim/
+" nnoremap <Leader>cc :vsc Edit.CommentSelection<CR>
+" nnoremap <Leader>cu :vsc Edit.UncommentSelection<CR>
+" vnoremap <Leader>cc :vsc Edit.CommentSelection<CR>
+" vnoremap <Leader>cu :vsc Edit.UncommentSelection<CR>
+
+" vim-surround
+" Surround simulating bindings
+nnoremap s) ciw(<C-r>")<Esc>
+nnoremap s] ciw[<C-r>"]<Esc>
+nnoremap s} ciw{<C-r>"}<Esc>
+nnoremap s> ciw<lt><C-r>"><Esc>
+nnoremap s" ciw"<C-r>""<Esc>
+nnoremap s' ciw'<C-r>"'<Esc>
+nnoremap sw) ciW(<C-r>")<Esc>
+nnoremap sw] ciW[<C-r>"]<Esc>
+nnoremap sw} ciW{<C-r>"}<Esc>
+nnoremap sw> ciW<lt><C-r>"><Esc>
+nnoremap sw" ciW"<C-r>""<Esc>
+nnoremap sw' ciW'<C-r>"'<Esc>
+
+" Surround delete bindings
+nnoremap ds) vi(dvhp
+nnoremap ds] vi[dvhp
+nnoremap ds} vi{dvhp
+nnoremap ds> vi<dvhp
+nnoremap ds" vi"dvhp
+nnoremap ds' vi'dvhp
+
+" Surround change bindings
+nnoremap cs"' vi"oh<Esc>msvi"l<Esc>cl'<Esc>`scl'<Esc>
+nnoremap cs'" vi'oh<Esc>msvi'l<Esc>cl"<Esc>`scl"<Esc>
+
+" Surround visual selected text
+vnoremap S" c"<C-r>""<Esc>
+vnoremap S' c"<C-r>"'<Esc>
+vnoremap S) c(<C-r>")<Esc>
+vnoremap S] c[<C-r>"]<Esc>
+vnoremap S} c{<C-r>"}<Esc>
+vnoremap S> c<lt><C-r>"><Esc>
+vnoremap S* c/*<C-r>"*/<Esc>
+"vnoremap St c<lt>div><CR><C-r>"<Esc>
+" Surround in div tag and edit tag
+vnoremap St c<lt>div><CR><C-r>"<Esc>`<lt>lcw
