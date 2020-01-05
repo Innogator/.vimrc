@@ -48,3 +48,5 @@ nnoremap k gk
 " Leader Shortcuts
 map <space> <leader>
 inoremap jk <esc>           " jk is escape
+nnoremap <leader>ev :vsp ~/.vimrc<CR>   " edit .vimrc
+

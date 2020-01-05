@@ -2,8 +2,8 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-nnoremap <leader>ev :vsp $MYVIMRC<CR>		" edit init.vim
-nnoremap <leader>sv :source $MYVIMRC<CR>	" source init.vim
+nnoremap <leader>en :vsp $MYVIMRC<CR>		" edit init.vim
+nnoremap <leader>sn :source $MYVIMRC<CR>	" source init.vim
 
 " if vim-plug isn't installed, download it to the autoload directory
 if empty(glob('$LOCALAPPDATA\nvim\autoload\plug.vim'))
