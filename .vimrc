@@ -29,7 +29,7 @@ set title                   " show terminal title
 set list                    " show invisible characters
 
 " put colorscheme files in ~/.vim/colors/
-colorscheme slate           " good colorschemes: murphy, slate, molokai, badwolf, solarized
+colorscheme gruvbox         " good colorschemes: murphy, slate, molokai, badwolf, solarized
 
 " Searching
 set incsearch               " search as characters are entered

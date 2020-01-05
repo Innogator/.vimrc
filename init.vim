@@ -5,6 +5,8 @@ source ~/.vimrc
 nnoremap <leader>en :vsp $MYVIMRC<CR>		" edit init.vim
 nnoremap <leader>sn :source $MYVIMRC<CR>	" source init.vim
 
+set termguicolors               " use true color terminal
+
 " if vim-plug isn't installed, download it to the autoload directory
 if empty(glob('$LOCALAPPDATA\nvim\autoload\plug.vim'))
     silent ! powershell (md "$env:LOCALAPPDATA\nvim\autoload")
@@ -14,5 +16,6 @@ endif
   
 call plug#begin('$LOCALAPPDATA\nvim\plugged')
 	Plug 'tpope/vim-surround'   " quoting/parenthesizing made simple
+    Plug 'morhetz/gruvbox'      " gruvbox theme
 	" Plug 'jceb/vim-orgmode'		" org mode for tasks management
 call plug#end()
