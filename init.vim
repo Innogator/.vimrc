@@ -19,6 +19,8 @@ call plug#end()
 nnoremap <leader>en :vsp $MYVIMRC<CR>       " edit init.vim
 nnoremap <leader>sn :source $MYVIMRC<CR>	" source init.vim
 
+set shell=bash
+
 " put colorscheme files in ~/.vim/colors/
 colorscheme gruvbox         " good colorschemes: murphy, slate, molokai, badwolf, solarized
-set termguicolors           " use true color terminal
+set termguicolors           " use truecolor terminal
