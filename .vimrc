@@ -19,7 +19,8 @@ set autoindent              " copy indent from current line when starting a new 
 set smartindent             " even better autoindent (e.g. add indent after '{')
 
 " UI Config
-set number                  " show line numbers
+set number                  " show absolute line number for current line
+set relativenumber          " show relative numbers
 set ruler                   " show line and column number of the cursor on right side of statusline
 set lazyredraw              " redraw screen only when we need to
 set showcmd                 " show command in bottom bar
@@ -27,6 +28,7 @@ set showmatch               " highlight matching [{()}]
 set title                   " show terminal title
 set list                    " show invisible characters
 set cursorline              " highglight current line
+set termguicolors           " enable true colors
 
 " Searching
 set incsearch               " search as characters are entered
@@ -45,5 +47,20 @@ nnoremap k gk
 " Leader Shortcuts
 map <space> <leader>
 inoremap jk <esc>                       " jk is escape
+nnoremap <leader><leader> :bp<CR>       " easily switch to previous buffer
 nnoremap <leader>ev :vsp ~/.vimrc<CR>   " edit .vimrc
+nnoremap <CR> O<Esc>                    " inserts new line where cursor is without entering insert mode
 
+" Easier window navigation
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
+
+" Delete all marks ex command
+:delm! | delm A-Z0-9
+
+" Automatically save the session when leaving Vim
+"autocmd! VimLeave * mksession
+" Automatically load the session when entering vim
+"autocmd! VimEnter * source ~/Session.vim

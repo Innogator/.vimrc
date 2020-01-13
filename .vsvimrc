@@ -1,5 +1,6 @@
 source ~/.vimrc
 
+inoremap jk <Esc>
 " previous config
 nmap <C-.> :vsc View.ShowSmartTag<CR>
 nmap en :vsc View.NextError<CR>
@@ -27,6 +28,9 @@ nnoremap <leader>m :vsc Edit.NextMethod<CR>
 nnoremap <leader>M :vsc Edit.PreviousMethod<CR>
 nnoremap <leader>S :vsc SolutionExplorer.SyncWithActiveDocument<CR>
 nnoremap R :vsc Refactor.Rename<CR>
+
+" sort and remove unused usings
+nnoremap <leader>u :vsc Edit.RemoveAndSort<CR>
 
 " jump between compilation errors
 nnoremap <leader>e :vsc View.NextError<CR>

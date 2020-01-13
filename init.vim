@@ -11,17 +11,24 @@ endif
 
 call plug#begin('$LOCALAPPDATA\nvim\plugged')
     Plug 'tpope/vim-surround'               " quoting/parenthesizing made simple
-    Plug 'morhetz/gruvbox'                  " gruvbox theme
+    " Plug 'morhetz/gruvbox'                  " gruvbox theme
+    Plug 'sainnhe/gruvbox-material'
     Plug 'machakann/vim-highlightedyank'    " temporarily highlight text from yank commands
-    " Plug 'jceb/vim-orgmode'               " org mode for tasks management
-call plug#end()
+    Plug 'tpope/vim-fugitive'               " git wrapper
+    Plug 'airblade/vim-gitgutter'           " git diff in the gutter and stages/undoes hunks
+    " Plug 'jceb/vim-orgmode'               " org mode for tasks managementcall plug#end()
 
 nnoremap <leader>en :vsp $MYVIMRC<CR>       " edit init.vim
 nnoremap <leader>sn :source $MYVIMRC<CR>	" source init.vim
 
-set shell=bash
-
 " put colorscheme files in ~/.vim/colors/
-colorscheme gruvbox         " good colorschemes: murphy, slate, molokai, badwolf, solarized
-set termguicolors           " use true color terminal
+set termguicolors                           " use true color terminal
+let g:gruvbox_material_background = 'hard'  " hard, medium, or soft
+colorscheme gruvbox-material                " good colorschemes: murphy, slate, molokai, badwolf, solarized
+
+" vim.fugitive config
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+
+" vim.gitgutter config
+set updatetime=100
 
