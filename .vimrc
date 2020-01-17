@@ -8,7 +8,7 @@ set autochdir               " automatically change working directory based on cu
 set browsedir=current       " Make the file browser always open the current directory
 filetype indent on          " load filetype-specific indent files
 let g:netrw_liststyle = 2   " use directory list style of 3 by default
-let g:netrw_browse_split = 1" open new files in vertical split by default
+let g:netrw_browse_split = 1 " open new files in vertical split by default
 
 " Spaces and Tabs
 set tabstop=4               " number of visual spaces per TAB
@@ -36,20 +36,33 @@ set hlsearch                " highlight matches
 set ignorecase              " case-insensitive search
 set smartcase               " case-sensitive when including uppercase in search
 
+" Enhance Buffers
+set hidden                  " allow hidden buffers to easily switch
+
 " turn off search highlighting with <CR> (carriage-return)
 nnoremap <CR> :nohlsearch<CR><CR>
 
 " Movement
 " move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+nnoremap <silent> j gj
+nnoremap <silent> k gk
 
 " Leader Shortcuts
 map <space> <leader>
-inoremap jk <esc>                       " jk is escape
-nnoremap <leader><leader> :bp<CR>       " easily switch to previous buffer
-nnoremap <leader>ev :vsp ~/.vimrc<CR>   " edit .vimrc
-nnoremap <CR> O<Esc>                    " inserts new line where cursor is without entering insert mode
+" jk is escape
+inoremap jk <esc>
+" easily switch to previous buffer
+" nnoremap <leader><leader> :bp<CR>
+" edit .vimrc
+nnoremap <leader>ev :vsp ~/.vimrc<CR>
+" insert newline and return to normal mode
+nnoremap <leader><CR> o<Esc>
+
+" Buffer management
+" toggle recent buffer
+nnoremap <leader>t <C-^>
+" list current buffers and prompt which to open
+nnoremap <leader>l :ls<CR>:b<space>
 
 " Easier window navigation
 nnoremap <C-J> <C-W>j

@@ -22,6 +22,7 @@ map gr :vsc Edit.FindAllReferences<CR>
 map gp :vsc Edit.PeekDefinition<CR>
 map gb :vsc View.NavigateBackward<CR>
 map gf :vsc View.NavigateForward<CR>
+map gh :vsc Edit.QuickInfo<CR>
 
 " break out of the tyranny of text! Navigate by method
 nnoremap <leader>m :vsc Edit.NextMethod<CR>
